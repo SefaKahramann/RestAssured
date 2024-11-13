@@ -72,4 +72,47 @@ public class _01_ApiTest {
                 // bulunud yeri (path i )vererek içerde assertion hamcrest kütüphaneisi yapıyor
         ;
     }
+    @Test
+    public void checkCountryInResponseBody2(){
+        // Soru : "http://api.zippopotam.us/us/90210"  endpoint indne dönen
+        // place dizisinin ilk elemanının state değerinin  "California"
+        // olduğunu doğrulayınız
+
+        given()
+                .when()
+                .get("http://api.zippopotam.us/us/90210")
+                .then()
+                .log().body()
+                .statusCode(200)
+                .body("places[0].state",equalTo("California"))
+        ;
+    }
+
+    @Test
+    public void checkHasItem(){
+        // Soru : "http://api.zippopotam.us/tr/01000"  endpoint in dönen
+        // place dizisinin herhangi bir elemanında  "Dörtağaç Köyü" değerinin
+        // olduğunu doğrulayınız
+
+        given()
+                .when()
+                .get("http://api.zippopotam.us/tr/01000")
+                .then()
+                .log().body()
+                .body("places.'place name'",hasItem("Dörtağaç Köyü")) // places içindeki bütün elemanların içinde Dörtağaç köyü varmı ?
+        ;
+    }
+
+    @Test
+    public void Soru2(){
+        // Soru : "http://api.zippopotam.us/us/90210"  endpoint in dönen
+        // place dizisinin dizi uzunluğunun 1 olduğunu doğrulayınız.
+        given()
+                .when()
+                .get("http://api.zippopotam.us/us/90210")
+                .then()
+                .log().body()
+                .body("places",hasSize(1)) // places in eleman uzunluğu 1 mi ?
+        ;
+    }
 }
