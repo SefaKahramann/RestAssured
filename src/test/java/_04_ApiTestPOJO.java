@@ -1,5 +1,4 @@
-package Model;
-
+import Model.Location;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.*;
