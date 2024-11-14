@@ -1,7 +1,10 @@
+import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static io.restassured.RestAssured.given;
+import java.util.List;
+
+import static io.restassured.RestAssured.*;
 
 public class _03_ApiTestExtract {
 
@@ -52,4 +55,61 @@ public class _03_ApiTestExtract {
         System.out.println("limit = " + limit);
         Assert.assertTrue(limit == 10);
     }
+
+    @Test
+    public void extractingJsonPath4() {
+        // Soru : "https://gorest.co.in/public/v1/users"  endpoint in den dönen
+        // data daki bütün idleri nasıl alırız
+        List<Integer> idler =
+                given()
+                        .when()
+                        .get("https://gorest.co.in/public/v1/users")
+
+                        .then()
+                        .extract().path("data.id")
+                ;
+
+        System.out.println("idler = " + idler);
+
+    }
+
+    @Test
+    public void extractingJsonPath5() {
+        // Soru : "https://gorest.co.in/public/v1/users"  endpoint in den dönen
+        // bütün name leri yazdırınız.
+        List<String> names =
+                given()
+                        .when()
+                        .get("https://gorest.co.in/public/v1/users")
+
+                        .then()
+                        .extract().path("data.name")
+                ;
+
+        System.out.println("names = " + names);
+    }
+
+    @Test
+    public void extractinJsonPathResponsAll() {
+        Response response =
+                given()
+                        .when()
+                        .get("https://gorest.co.in/public/v1/users")
+
+                        .then()
+                        .extract().response()
+                ;
+        List<Integer> ids=response.path("data.id");
+        List<String> names=response.path("data.name");
+        int limit =response.path("meta.pagination.limit");
+
+        System.out.println("ids = " + ids);
+        System.out.println("names = " + names);
+        System.out.println("limit = " + limit);
+
+        Assert.assertTrue(ids.contains(7522200));
+        Assert.assertTrue(names.contains("Varalakshmi Mehrotra"));
+        Assert.assertTrue(limit == 10);
+    }
+
 }
