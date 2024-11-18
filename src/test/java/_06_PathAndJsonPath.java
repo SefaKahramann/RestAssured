@@ -1,4 +1,3 @@
-import Model.Location;
 import Model.Place;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
