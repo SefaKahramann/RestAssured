@@ -10,9 +10,8 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-import static io.restassured.RestAssured.baseURI;
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
 
 // GoRest Posts kaynağındaki API leri test ediniz.
 // create,getId,update, delete, deleteNegative
