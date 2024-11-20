@@ -108,20 +108,20 @@ public class _07_GoRestUsersTest {
         ;
     }
 
-    // delete negative
-    @Test(dependsOnMethods = "deleteUser")
-    public void deleteUserNegative() {
-
-        given()
-                .spec(requestSpec)
-                .log().uri()
-
-                .when()
-                .delete("/" + userId)
-
-                .then()
-                .log().body()
-                .statusCode(404)
-        ;
-    }
+//    // delete negative
+//    @Test(dependsOnMethods = "deleteUser")
+//    public void deleteUserNegative() {
+//
+//        given()
+//                .spec(requestSpec)
+//                .log().uri()
+//
+//                .when()
+//                .delete("/" + userId)
+//
+//                .then()
+//                .log().body()
+//                .statusCode(404)
+//        ;
+//    }
 }

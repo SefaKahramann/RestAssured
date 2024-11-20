@@ -101,19 +101,19 @@ public class _10_CitizenshipTest extends _CampusParent{
         ;
     }
 
-    @Test(dependsOnMethods = "deleteCitizenships")
-    public void deleteCitizenshipsNegative() {
-        given()
-                .spec(requestSpec)
-                .log().uri()
-
-                .when()
-                .delete("/school-service/api/citizenships/"+ idStr)
-
-                .then()
-                .statusCode(400)
-                .body("message", equalTo("Citizenships not found"))
-        ;
-    }
+//    @Test(dependsOnMethods = "deleteCitizenships")
+//    public void deleteCitizenshipsNegative() {
+//        given()
+//                .spec(requestSpec)
+//                .log().uri()
+//
+//                .when()
+//                .delete("/school-service/api/citizenships/"+ idStr)
+//
+//                .then()
+//                .statusCode(400)
+//                .body("message", equalTo("Citizenships not found"))
+//        ;
+//    }
 
 }

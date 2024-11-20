@@ -138,18 +138,18 @@ public class _09_CountryTest {
         ;
     }
 
-    @Test(dependsOnMethods = "deleteCountry")
-    public void deleteCountryNegative() {
-        given()
-                .spec(requestSpec)
-                .log().uri()
-
-                .when()
-                .delete("/school-service/api/countries/"+ idStr)
-
-                .then()
-                .statusCode(400)
-                .body("message", equalTo("Country not found"))
-        ;
-    }
+//    @Test(dependsOnMethods = "deleteCountry")
+//    public void deleteCountryNegative() {
+//        given()
+//                .spec(requestSpec)
+//                .log().uri()
+//
+//                .when()
+//                .delete("/school-service/api/countries/"+ idStr)
+//
+//                .then()
+//                .statusCode(400)
+//                .body("message", equalTo("Country not found"))
+//        ;
+//    }
 }

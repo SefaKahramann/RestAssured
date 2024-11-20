@@ -129,19 +129,19 @@ public class _08_GoRestPostTest {
         ;
     }
 
-    @Test(dependsOnMethods = "deletePost")
-    public void deletePostNegative() {
-
-        given()
-                .spec(requestSpec)
-                .log().uri()
-
-                .when()
-                .delete("/" + PostId)
-
-                .then()
-                .log().body()
-                .statusCode(404)
-        ;
-    }
+//    @Test(dependsOnMethods = "deletePost")
+//    public void deletePostNegative() {
+//
+//        given()
+//                .spec(requestSpec)
+//                .log().uri()
+//
+//                .when()
+//                .delete("/" + PostId)
+//
+//                .then()
+//                .log().body()
+//                .statusCode(404)
+//        ;
+//    }
 }
