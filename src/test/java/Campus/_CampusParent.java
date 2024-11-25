@@ -10,8 +10,7 @@ import org.testng.annotations.BeforeClass;
 import java.util.HashMap;
 import java.util.Map;
 
-import static io.restassured.RestAssured.baseURI;
-import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.*;
 
 public class _CampusParent {
     RequestSpecification requestSpec;

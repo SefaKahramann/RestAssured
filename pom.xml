@@ -73,7 +73,6 @@
                     <includes>
                         <include>**/_09_CountryTest.java</include>  <!-- **/ projenin neresinde ise bul  -->
                     </includes>
-
                 </configuration>
             </plugin>
         </plugins>
